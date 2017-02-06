@@ -1,1 +1,1 @@
-call、apply、bind三者联系与区别
+利用seaJs框架绘制全城地图POI点

@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>POI</title>
+<link rel="stylesheet" type="text/css" href="./css/main.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="#" class="navbar-brand">北极光工作室POI展示DEMO</a>
+        <form class="form-inline" id="formSearch">
+            <div class="form-group">
+                <label >城市: </label>
+                <select class="form-control" name="city">
+                    <option value="110000">北京市</option>
+                    <option value="310000">上海市</option>
+                    <option value="440100">广州市</option>
+                    <option value="440300">深圳市</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label >筛选条件: </label>
+                <select class="form-control mode" name="mode" id="mode">
+                    <option value="0">POI分类</option>
+                    <option value="1">关键字检索</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <div class="form-control category active" id="mode_0"><span>请选择POI分类</span></div>
+                <div class="form-control category" id="mode_1"><span>请选择关键字</span></div>               
+            </div>
+            <div class="form-group poi" style="display:none" id="poi">             
+            </div>
+            <div class="form-group keyword" style="display:none" id="keyword">             
+            </div>
+            <button type="submit" class="button" value="post">确定</button>
+        </form>
+    </header>
+    <div id="container">     
+    </div>
+    <div class="categoryList categoryList_list" id="categoryList">
+        <ul>
+        <li>最多可进行5次筛选哦</li>
+        </ul>
+    </div>
+    <div class="categoryList categoryList_tuli" id="categoryList_tuli">
+        <ul>
+        </ul>
+    </div>
+    <div id="loadTip" class="loadTip">
+        <img src="images/load.jpg" width="80px" height="80px" alt="" />
+    </div>
+    <div id="m1" class="xmenu" style="display: none;">
+        <div class="select-info"> 
+          <label class="top-label">已选：</label>
+          <ul>          
+          </ul>
+          <a name="menu-confirm" href="javascript:void(0);" class="a-btn">
+            <span class="a-btn-text">确定</span>
+          </a> 
+        </div>      
+        <dl>
+            <dt class="open">美食</dt>
+            <dd>       
+              <ul data-cate="美食">
+                <li rel="100000">麦当劳</li>      
+                <li rel="100000">肯德基</li>      
+                <li rel="100000">汉堡王</li>     
+                <li rel="100000">满记甜品</li>
+                <li rel="100000">鲜芋仙</li>
+                <li rel="100000">许留山</li>
+                <li rel="100000">哈根达斯</li>
+                <li rel="100000">冰雪皇后</li>
+                <li rel="100000">香港果c益佰港式甜品</li>
+                <li rel="100000">摩提工房</li>
+                <li rel="100000">杨小贤</li>
+                <li rel="100000">香芒山</li>
+                <li rel="100000">老港记甜品</li>
+                <li rel="100000">三元梅园</li>
+                <li rel="100000">芋贵人甜品店</li>
+                <li rel="100000">酒窝甜品店</li>
+                <li rel="100000">仙芋世家</li>
+                <li rel="160000">星巴克</li>      
+                <li rel="160000">costa coffee</li> 
+                <li rel="160000">pacific coffee company</li>
+                <li rel="100000">必胜客</li>    
+                <li rel="100000">永和大王</li>       
+                <li rel="100000">沙县</li>       
+                <li rel="100000">麻辣烫</li>      
+                <li rel="100000">小龙虾</li>      
+                <li rel="100000">桂林米粉</li>     
+                <li rel="100000">成都小吃</li>     
+                <li rel="101016">川菜</li>       
+                <li rel="101024">粤菜</li>       
+                <li rel="101025">东北菜</li>      
+                <li rel="101017">湘菜</li>       
+                <li rel="101028">西北菜</li>      
+                <li rel="101031">台湾菜</li>      
+                <li rel="101029">云贵菜</li>      
+                <li rel="100000">江西菜</li>      
+                <li rel="101027">新疆菜</li>        
+              </ul>           
+            </dd>
+            <dt class="open">便利店</dt>
+            <dd>
+                <ul data-cate="便利店">
+                    <li rel="131100">全家</li> 
+                    <li rel="131100">711便利店</li>   
+                    <li rel="131100">联华快客</li> 
+                    <li rel="131100">美宜佳</li>
+                    <li rel="131100">好德便利</li> 
+                    <li rel="131100">可的</li> 
+                    <li rel="131100">罗森</li> 
+                    <li rel="131100">喜士多</li>
+                    <li rel="131100">上好便利店</li> 
+                    <li rel="131100">红旗连锁</li>
+                    <li rel="131100">天福便利</li> 
+                </ul>    
+            </dd>
+            <dt class="open">购物</dt>
+            <dd>
+                <ul data-cate="购物">
+                    <li rel="130000">沃尔玛</li>
+                    <li rel="130000">家乐福</li>
+                    <li rel="130000">苏宁电器</li>
+                    <li rel="130000">国美电器</li>
+                    <li rel="130000">大润发</li>
+                    <li rel="130000">百联超市</li>
+                    <li rel="130000">永辉超市</li>
+                    <li rel="130000">银座商城</li>
+                    <li rel="130000">物美</li>
+                    <li rel="130000">华润万家</li>
+                    <li rel="130000">世纪联华</li>
+                    <li rel="130000">联华超市</li>
+                    <li rel="130000">华联超市</li>
+                    <li rel="130000">麦德龙</li>
+                    <li rel="130000">大商超市</li>
+                    <li rel="130000">王府井百货</li>
+                    <li rel="130000">人人乐</li>
+                    <li rel="130000">苏果超市</li>
+                    <li rel="130000">农工商超市</li>
+                    <li rel="130000">步步高电器</li>
+                    <li rel="130000">五星电器</li>
+                    <li rel="130000">新一佳</li>
+                    <li rel="130000">欧亚商都</li>
+                    <li rel="130000">卜蜂莲花</li>
+                    <li rel="130000">乐天玛特</li>
+                    <li rel="130000">欧尚</li>
+                    <li rel="130000">仁和春天百货</li>
+                    <li rel="130000">天虹商场</li>
+                    <li rel="130000">银泰百货</li>
+                    <li rel="130000">乐天银泰百货</li>
+                    <li rel="130000">重庆百货</li>
+                    <li rel="130000">武汉百货</li>
+                    <li rel="130000">中百超市</li>
+                    <li rel="130000">茂业百货</li>
+                </ul>    
+            </dd>
+        </dl>     
+    </div>
+    <div id="m2" class="xmenu" style="display: none;">
+        <div class="select-info"> 
+          <label class="top-label">已选：</label>
+          <ul>          
+          </ul>
+          <a name="menu-confirm" href="javascript:void(0);" class="a-btn">
+            <span class="a-btn-text">确定</span>
+          </a> 
+        </div>
+        <dl>
+            <dt class="open">美食</dt>
+            <dd>       
+              <ul data-cate="美食">
+                <li rel="101000">中餐厅</li>
+                <li rel="101100">农家菜</li>
+                <li rel="101200">官府菜</li>
+                <li rel="101300">家常菜</li>
+                <li rel="101400">私家菜</li>
+                <li rel="101500">烧烤</li>
+                <li rel="101600">火锅</li>
+                <li rel="101700">海鲜</li>
+                <li rel="101800">特色中餐</li>
+                <li rel="101900">素食</li>
+                <li rel="102000">小吃快餐</li>
+                <li rel="102100">清真</li>
+                <li rel="102200">日韩菜</li>
+                <li rel="102300">东南亚菜</li>
+                <li rel="102400">西餐</li>
+                <li rel="102500">自助餐</li>
+                <li rel="102600">面包甜点</li> 
+                <li rel="102700">茶餐厅</li> 
+                <li rel="102800">冷饮店</li> 
+                <li rel="109900">其它美食</li>        
+              </ul>           
+            </dd>
+            <dt class="open">购物</dt>
+            <dd>
+                <ul data-cate="购物">
+                    <li rel="131000">综合商场</li>
+                    <li rel="131100">便利店</li>
+                    <li rel="131200">超市</li>
+                    <li rel="131600">农贸市场</li>
+                    <li rel="131700">小商品市场</li>
+                    <li rel="132600">商业步行街</li> 
+                </ul>    
+            </dd>
+            <dt class="open">旅游景点</dt>
+            <dd>
+                <ul data-cate="旅游景点">
+                    <li rel="221000">风景名胜</li>
+                    <li rel="221100">公园</li>
+                    <li rel="221200">植物园</li>
+                    <li rel="221300">动物园</li>
+                    <li rel="221400">水族馆</li>
+                    <li rel="221500">城市广场</li>
+                    <li rel="221600">世界遗产</li>
+                    <li rel="221700">国家级景点</li>
+                    <li rel="221800">省级景点</li>
+                    <li rel="221900">纪念馆</li>
+                    <li rel="222000">寺庙道观</li>
+                    <li rel="222100">教堂</li>
+                    <li rel="222200">海滩</li>
+                    <li rel="222310">清真寺</li>
+                    <li rel="228000">景点公园附属</li>
+                    <li rel="229900">其它旅游景点</li>
+                </ul>    
+            </dd>
+            <dt class="open">娱乐休闲</dt>
+            <dd>
+                <ul data-cate="娱乐休闲">
+                    <li rel="161200">酒吧</li>
+                    <li rel="161100">KTV</li>
+                    <li rel="161300">咖啡厅</li>
+                </ul>    
+            </dd>
+        </dl>
+    </div>
+<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=VFUBZ-JIR3D-Z2M4H-PPAGG-G5KVQ-S3F2S&callback="></script>
+<script type="text/javascript" src="./js/main.js"></script>
+<script>
+
+$(document).ready(function() {
+    $("#mode_0").xMenu({
+      width :750,
+      eventType: "click", //事件类型 支持focus click hover
+      dropmenu:"#m2",//弹出层
+      hiddenID : "selectposhidden",//隐藏域ID
+      emptytext:'请选择POI分类'        
+    });
+    $("#mode_1").xMenu({
+      width :750,
+      eventType: "click", //事件类型 支持focus click hover
+      dropmenu:"#m1",//弹出层
+      hiddenID : "selectposhidden",//隐藏域ID
+      emptytext:'请选择关键字'       
+    });
+});
+
+    seajs.config({
+        base: './js/'
+    });
+    seajs.use(['index.js'], function(View){
+        new View();
+    });
+
+    </script>
+</body>
+</html>
+    

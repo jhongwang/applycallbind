@@ -1,0 +1,1 @@
+call、apply、bind三者联系与区别
